@@ -46,12 +46,12 @@ export default function MainFlex() {
   }, []);
   /* ------------ connect wallet --------------*/
   useEffect(() => {
-    const address = `https://bnbextra.xyz?ref=${account}`;
+    const address = `https://fanta.feller?ref=${account}`;
     setReferalAddress(address);
     console.log("account changed", address);
   }, [account]);
 
-  useEffect(() => {
+  useEffect((account) => {
     const getAccountDetail = async () => {
       try {
         if (account) {
@@ -103,23 +103,23 @@ export default function MainFlex() {
   const deposit = async (plan) => {
     if (!account) return;
     let investValue = 0;
-    // switch (plan) {
-    //   case 1:
-    //     investValue = firstPlanInvestAmount;
-    //     break;
-    //   case 2:
+    switch (plan) {
+      case 1:
+        investValue = firstPlanInvestAmount;
+        break;
+      case 2:
         investValue = secondPlanInvestAmount;
-    //     break;
-    //   case 3:
-    //     investValue = thirdPlanInvestAmount;
-    //     break;
-    // }
+        break;
+      case 3:
+        investValue = thirdPlanInvestAmount;
+        break;
+    }
     try {
       let provider = library.provider;
       const prov = new ethers.providers.Web3Provider(provider);
       let signer = await prov.getSigner();
       let signedTokenContract = bnbStakingContract.connect(signer);
-      // await signedTokenContract.invest(account, toBigNum(Number(investValue), 18));
+      await signedTokenContract.invest(account, toBigNum(Number(investValue), 18));
       await signedTokenContract.invest(account, plan, {
         value: ethers.utils.parseEther(investValue),
       });
@@ -137,17 +137,17 @@ export default function MainFlex() {
   };
 
   const onChangeDeposit = (plan, value) => {
-    // switch (plan) {
-    //   case 1:
-    //     setFirstPlanInvestAmount(value);
-    //     break;
-    //   case 2:
+    switch (plan) {
+      case 1:
+        setFirstPlanInvestAmount(value);
+        break;
+      case 2:
         setSecondPlanInvestAmount(value);
-    //     break;
-    //   case 3:
-    //     setThirdPlanInvestAmount(value);
-    //     break;
-    // }
+        break;
+      case 3:
+        setThirdPlanInvestAmount(value);
+        break;
+    }
   };
   return (
     <>
@@ -253,9 +253,6 @@ export default function MainFlex() {
             <div className="home_s_grp">
               <div className="glass">
                 <div className="icon">
-                  {/* 👑 */}
-                  {/* ✨ */}
-                  {/* 🏺 */}
                   💎
                 </div>
               </div>
