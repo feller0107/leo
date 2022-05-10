@@ -46,12 +46,12 @@ export default function MainFlex() {
   }, []);
   /* ------------ connect wallet --------------*/
   useEffect(() => {
-    const address = `https://bnbstaker.xyz?ref=${account}`;
+    const address = `https://bnbextra.xyz?ref=${account}`;
     setReferalAddress(address);
     console.log("account changed", address);
   }, [account]);
 
-  useEffect((account) => {
+  useEffect(() => {
     const getAccountDetail = async () => {
       try {
         if (account) {
@@ -84,7 +84,7 @@ export default function MainFlex() {
       }
     };
     getAccountDetail();
-  });
+  }, [account]);
 
   // check connection
   const disconnect = () => {
