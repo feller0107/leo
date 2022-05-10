@@ -51,7 +51,7 @@ export default function MainFlex() {
     console.log("account changed", address);
   }, [account]);
 
-  useEffect((account) => {
+  useEffect(() => {
     const getAccountDetail = async () => {
       try {
         if (account) {
@@ -84,7 +84,7 @@ export default function MainFlex() {
       }
     };
     getAccountDetail();
-  });
+  }, []);
 
   // check connection
   const disconnect = () => {
