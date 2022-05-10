@@ -46,7 +46,7 @@ export default function MainFlex() {
   }, []);
   /* ------------ connect wallet --------------*/
   useEffect(() => {
-    const address = `https://bnbtreasure.netlify.app/?ref=${account}`;
+    const address = `https://bnbstaker.xyz?ref=${account}`;
     setReferalAddress(address);
     console.log("account changed", address);
   }, [account]);
