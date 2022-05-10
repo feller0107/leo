@@ -421,7 +421,7 @@ export default function MainFlex() {
                     <h3>FEES 3% (1% development + 2% marketing fees)</h3>
                   </div>
                   <div className="horizontal-group-alt">
-                    <h6>
+                    <h5>
                       Atlantis BNB Miner is a resource rich mine that has just
                       been discovered by a risk of adventurers. The sea is vast
                       and full of treasures, so continue your research and
@@ -432,7 +432,8 @@ export default function MainFlex() {
                       deposits and compounds. Compound the daily rewards to get
                       them more pirates who won't stop to seek treasures from
                       the ground and increase your earnings exponentially.
-                    </h6>
+                      {/* <br /> */}
+                    </h5>
                   </div>
                 </div>
               </div>
