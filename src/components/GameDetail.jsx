@@ -84,7 +84,7 @@ export default function MainFlex() {
       }
     };
     getAccountDetail();
-  }, []);
+  });
 
   // check connection
   const disconnect = () => {
